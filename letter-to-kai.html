@@ -1,0 +1,2040 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カイへの手紙 - Letter to Kai</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif JP', serif;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(255, 182, 193, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(221, 160, 221, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(176, 224, 230, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 60% 20%, rgba(255, 218, 185, 0.3) 0%, transparent 50%),
+                linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background-size: 100% 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+            animation: backgroundShift 15s ease-in-out infinite;
+        }
+
+        @keyframes backgroundShift {
+
+            0%,
+            100% {
+                background-position: 0% 50%, 100% 50%, 50% 100%, 50% 0%, 0% 0%;
+            }
+
+            50% {
+                background-position: 100% 50%, 0% 50%, 50% 0%, 50% 100%, 0% 0%;
+            }
+        }
+
+        /* Animated background particles */
+        .particle {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 15s infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Floating hearts */
+        .heart {
+            position: fixed;
+            color: rgba(255, 182, 193, 0.6);
+            font-size: 20px;
+            pointer-events: none;
+            animation: floatHeart 12s infinite ease-in-out;
+            z-index: 1;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.8;
+            }
+
+            90% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-100vh) translateX(50px) rotate(180deg);
+                opacity: 0;
+            }
+        }
+
+        /* Glowing orbs */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(40px);
+            animation: orbFloat 20s infinite ease-in-out;
+            z-index: 1;
+        }
+
+        @keyframes orbFloat {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: translate(100px, -100px) scale(1.5);
+                opacity: 0.6;
+            }
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.3);
+            padding: 60px;
+            position: relative;
+            animation: fadeInUp 1s ease-out;
+
+            /* Paper texture effect */
+            background-image:
+                linear-gradient(90deg, transparent 0%, transparent 48%, rgba(102, 126, 234, 0.03) 49%, rgba(102, 126, 234, 0.03) 51%, transparent 52%, transparent 100%),
+                linear-gradient(0deg, transparent 0%, transparent 48%, rgba(102, 126, 234, 0.03) 49%, rgba(102, 126, 234, 0.03) 51%, transparent 52%, transparent 100%),
+                repeating-linear-gradient(90deg,
+                    rgba(255, 255, 255, 0.95),
+                    rgba(255, 255, 255, 0.95) 1px,
+                    rgba(252, 252, 254, 0.95) 1px,
+                    rgba(252, 252, 254, 0.95) 2px);
+            background-size: 100% 100%, 100% 100%, 4px 4px;
+
+            /* Decorative border */
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            box-shadow:
+                0 30px 90px rgba(0, 0, 0, 0.3),
+                inset 0 0 60px rgba(102, 126, 234, 0.05),
+                0 0 0 8px rgba(255, 255, 255, 0.5),
+                0 0 0 10px rgba(102, 126, 234, 0.1);
+        }
+
+        /* Decorative corner flourishes */
+        .container::before,
+        .container::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border: 3px solid rgba(102, 126, 234, 0.3);
+            pointer-events: none;
+        }
+
+        .container::before {
+            top: 20px;
+            left: 20px;
+            border-right: none;
+            border-bottom: none;
+            border-top-left-radius: 20px;
+        }
+
+        .container::after {
+            bottom: 20px;
+            right: 20px;
+            border-left: none;
+            border-top: none;
+            border-bottom-right-radius: 20px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+
+            0%,
+            100% {
+                filter: brightness(1);
+            }
+
+            50% {
+                filter: brightness(1.3);
+            }
+        }
+
+        .header .subtitle {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.5rem;
+            color: #764ba2;
+            font-style: italic;
+        }
+
+        .language-toggle {
+            text-align: center;
+            margin-bottom: 30px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .toggle-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            font-family: 'Noto Serif JP', serif;
+            opacity: 0.6;
+        }
+
+        .toggle-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+            opacity: 0.85;
+        }
+
+        .toggle-btn:active {
+            transform: translateY(0);
+        }
+
+        .toggle-btn.active {
+            opacity: 1;
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.8);
+            transform: translateY(-2px);
+        }
+
+        .letter-content {
+            line-height: 2;
+            font-size: 1.1rem;
+            color: #333;
+            text-align: justify;
+        }
+
+        .letter-content.japanese {
+            display: block;
+        }
+
+        .letter-content.english {
+            display: none;
+            font-family: 'Crimson Text', serif;
+        }
+
+        .letter-content.taglish {
+            display: none;
+            font-family: 'Crimson Text', serif;
+        }
+
+        .letter-content p {
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .letter-content p:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .letter-content p:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .letter-content p:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .letter-content p:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .letter-content p:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .greeting {
+            font-size: 1.3rem;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .signature {
+            margin-top: 50px;
+            text-align: right;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: #764ba2;
+            font-weight: 600;
+        }
+
+        /* Birthday celebration styling */
+        .birthday-message {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            padding: 30px;
+            margin: 30px 0;
+            background: linear-gradient(135deg, #FFD700, #FF69B4, #9370DB, #87CEEB, #98FB98, #FFD700);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rainbowShift 3s ease-in-out infinite;
+            position: relative;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+            line-height: 1.5;
+        }
+
+        @keyframes rainbowShift {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .birthday-message::before {
+            content: '🎉';
+            position: absolute;
+            left: -50px;
+            font-size: 2.5rem;
+            animation: bounce 1s infinite;
+        }
+
+        .birthday-message::after {
+            content: '🎂';
+            position: absolute;
+            right: -50px;
+            font-size: 2.5rem;
+            animation: bounce 1s infinite;
+            animation-delay: 0.5s;
+        }
+
+        .sparkle {
+            display: inline-block;
+            animation: sparkleAnim 1.5s ease-in-out infinite;
+        }
+
+        @keyframes sparkleAnim {
+
+            0%,
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.3) rotate(180deg);
+                opacity: 0.7;
+            }
+        }
+
+        .confetti-container {
+            position: relative;
+            width: 100%;
+            height: 100px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #f0f;
+            animation: confettiFall 3s linear infinite;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(200px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .heart-decoration {
+            text-align: center;
+            font-size: 2rem;
+            color: #ff6b9d;
+            margin: 30px 0;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .decorative-line {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #667eea, transparent);
+            margin: 40px 0;
+        }
+
+        /* Responsive design - iPhone 12/16 Optimized */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                border-radius: 20px;
+                margin: 10px;
+            }
+
+            .container::before,
+            .container::after {
+                width: 50px;
+                height: 50px;
+            }
+
+            .container::before {
+                top: 10px;
+                left: 10px;
+            }
+
+            .container::after {
+                bottom: 10px;
+                right: 10px;
+            }
+
+            .header {
+                margin-bottom: 30px;
+                padding-bottom: 20px;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .header .subtitle {
+                font-size: 1rem;
+            }
+
+            .language-toggle {
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+
+            .toggle-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+                min-height: 44px;
+            }
+
+            .letter-content {
+                font-size: 0.95rem;
+                line-height: 1.7;
+            }
+
+            .letter-content p {
+                margin-bottom: 1.2rem;
+            }
+
+            .day-counter {
+                padding: 20px;
+                margin: 30px 0;
+            }
+
+            .day-counter h3 {
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+            }
+
+            .counter-item {
+                font-size: 0.9rem;
+                margin: 12px 0;
+                line-height: 1.5;
+            }
+
+            .counter-label {
+                font-size: 0.85rem;
+                margin-bottom: 6px;
+            }
+
+            .counter-value {
+                font-size: 1.1rem;
+            }
+
+            .counter-number {
+                font-size: 2rem;
+                margin: 0 3px;
+            }
+
+            .birthday-message {
+                font-size: 1.3rem;
+                padding: 15px;
+                margin: 20px 0;
+            }
+
+            .signature {
+                font-size: 1.1rem;
+            }
+
+            .decorative-line {
+                margin: 30px 0;
+            }
+
+            .heart-decoration {
+                font-size: 1.5rem;
+                margin: 20px 0;
+            }
+
+            .greeting {
+                font-size: 1.3rem;
+            }
+        }
+
+        .scroll-indicator {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: white;
+            font-size: 2rem;
+            opacity: 0.7;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+
+        /* Control Panel Styles */
+        .control-panel {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .control-btn {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            font-size: 1.3rem;
+        }
+
+        .control-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .music-controls {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+
+        .music-controls.active {
+            display: block;
+        }
+
+        .volume-slider {
+            width: 100px;
+            margin-top: 10px;
+        }
+
+        /* Track Selection */
+        .track-list {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .track-list-title {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .track-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .track-btn {
+            padding: 8px;
+            background: rgba(102, 126, 234, 0.1);
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .track-btn:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: scale(1.05);
+        }
+
+        .track-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: #667eea;
+            box-shadow: 0 2px 10px rgba(102, 126, 234, 0.4);
+        }
+
+        body.dark-mode .track-list-title {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .track-btn {
+            background: rgba(168, 179, 255, 0.1);
+            border-color: rgba(168, 179, 255, 0.3);
+            color: #a8b3ff;
+        }
+
+        body.dark-mode .track-btn.active {
+            background: linear-gradient(135deg, #a8b3ff 0%, #c79fff 100%);
+            color: #1a1a2e;
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background:
+                radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(59, 130, 246, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 60% 20%, rgba(168, 85, 247, 0.2) 0%, transparent 50%),
+                linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            animation: backgroundShift 15s ease-in-out infinite;
+        }
+
+        body.dark-mode .container {
+            background: rgba(30, 30, 50, 0.95);
+            color: #e0e0e0;
+
+            /* Dark mode paper texture */
+            background-image:
+                linear-gradient(90deg, transparent 0%, transparent 48%, rgba(168, 179, 255, 0.03) 49%, rgba(168, 179, 255, 0.03) 51%, transparent 52%, transparent 100%),
+                linear-gradient(0deg, transparent 0%, transparent 48%, rgba(168, 179, 255, 0.03) 49%, rgba(168, 179, 255, 0.03) 51%, transparent 52%, transparent 100%),
+                repeating-linear-gradient(90deg,
+                    rgba(30, 30, 50, 0.95),
+                    rgba(30, 30, 50, 0.95) 1px,
+                    rgba(28, 28, 48, 0.95) 1px,
+                    rgba(28, 28, 48, 0.95) 2px);
+            background-size: 100% 100%, 100% 100%, 4px 4px;
+
+            border: 2px solid rgba(168, 179, 255, 0.2);
+            box-shadow:
+                0 30px 90px rgba(0, 0, 0, 0.5),
+                inset 0 0 60px rgba(168, 179, 255, 0.05),
+                0 0 0 8px rgba(30, 30, 50, 0.5),
+                0 0 0 10px rgba(168, 179, 255, 0.1);
+        }
+
+        body.dark-mode .container::before,
+        body.dark-mode .container::after {
+            border-color: rgba(168, 179, 255, 0.3);
+        }
+
+        body.dark-mode .letter-content {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .header h1 {
+            background: linear-gradient(135deg, #a8b3ff 0%, #c79fff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        body.dark-mode .header .subtitle {
+            color: #c79fff;
+        }
+
+        body.dark-mode .greeting {
+            color: #a8b3ff;
+        }
+
+        body.dark-mode .signature {
+            color: #c79fff;
+        }
+
+        body.dark-mode .decorative-line {
+            background: linear-gradient(90deg, transparent, #a8b3ff, transparent);
+        }
+
+        body.dark-mode .control-btn {
+            background: rgba(50, 50, 70, 0.9);
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .music-controls {
+            background: rgba(40, 40, 60, 0.95);
+            color: #e0e0e0;
+        }
+
+        /* Print Styles */
+        @media print {
+
+            .control-panel,
+            .language-toggle,
+            .particle,
+            .confetti-container {
+                display: none !important;
+            }
+
+            body {
+                background: white;
+            }
+
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+                background: white;
+                color: black;
+            }
+
+            .letter-content {
+                color: black;
+            }
+
+            .birthday-message {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            @page {
+                margin: 2cm;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .control-panel {
+                top: 10px;
+                right: 10px;
+            }
+
+            .control-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+
+            .music-controls {
+                width: 90%;
+                max-width: 350px;
+                padding: 15px;
+            }
+
+            .track-btn {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+
+            .track-list-title {
+                font-size: 0.9rem;
+                margin-bottom: 10px;
+            }
+        }
+
+        /* Welcome Overlay - Click to Start */
+        .welcome-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            cursor: pointer;
+            transition: opacity 0.8s ease;
+        }
+
+        .welcome-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .welcome-content {
+            text-align: center;
+            color: white;
+            padding: 40px;
+            animation: welcomePulse 2s ease-in-out infinite;
+        }
+
+        .welcome-content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .welcome-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .welcome-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: floatIcon 3s ease-in-out infinite;
+        }
+
+        @keyframes welcomePulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes floatIcon {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .click-hint {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            animation: blink 1.5s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 0.8;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .welcome-content h2 {
+                font-size: 2rem;
+            }
+
+            .welcome-content p {
+                font-size: 1.2rem;
+            }
+
+            .welcome-icon {
+                font-size: 3rem;
+            }
+        }
+
+        /* Day Counter */
+        .day-counter {
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.15), rgba(221, 160, 221, 0.15));
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+            border: 2px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .day-counter h3 {
+            font-size: 1.5rem;
+            color: #667eea;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .counter-item {
+            margin: 15px 0;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            white-space: normal;
+            word-break: keep-all;
+        }
+
+        .counter-label {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+
+        .counter-value {
+            font-size: 1.3rem;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .counter-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline;
+            margin: 0 5px;
+            white-space: nowrap;
+        }
+
+        body.dark-mode .day-counter {
+            background: linear-gradient(135deg, rgba(168, 179, 255, 0.15), rgba(199, 159, 255, 0.15));
+            border-color: rgba(168, 179, 255, 0.2);
+        }
+
+        body.dark-mode .day-counter h3 {
+            color: #a8b3ff;
+        }
+
+        body.dark-mode .counter-number {
+            background: linear-gradient(135deg, #a8b3ff 0%, #c79fff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Reading Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.3);
+            z-index: 9999;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        /* Interactive Hearts */
+        .click-heart {
+            position: fixed;
+            font-size: 3rem;
+            pointer-events: none;
+            z-index: 9998;
+            animation: heartFloat 2s ease-out forwards;
+        }
+
+        @keyframes heartFloat {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(0.5);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-200px) scale(1.5);
+            }
+        }
+
+        /* Fireworks Finale */
+        .fireworks-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10001;
+            flex-direction: column;
+        }
+
+        .fireworks-overlay.active {
+            display: flex;
+        }
+
+        .fireworks-message {
+            font-size: 2.5rem;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            z-index: 10002;
+            animation: messageGlow 2s ease-in-out infinite;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+
+        @keyframes messageGlow {
+
+            0%,
+            100% {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+            }
+
+            50% {
+                text-shadow: 0 0 40px rgba(255, 255, 255, 1), 0 0 60px rgba(102, 126, 234, 0.8);
+            }
+        }
+
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+        }
+
+        /* Starry Sky */
+        .star {
+            position: fixed;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: twinkle 3s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.5);
+            }
+        }
+
+        .shooting-star {
+            position: fixed;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+        }
+
+        @keyframes shoot {
+            0% {
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(-300px, 300px);
+                opacity: 0;
+            }
+        }
+
+        /* Secret Button */
+        .secret-button {
+            margin-top: 40px;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            font-family: 'Noto Serif JP', serif;
+        }
+
+        .secret-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .fireworks-message {
+                font-size: 1.5rem;
+                padding: 20px;
+            }
+
+            .counter-number {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Welcome Overlay - Click to Start -->
+    <div class="welcome-overlay" id="welcome-overlay" onclick="startLetter()">
+        <div class="welcome-content">
+            <div class="welcome-icon">💌</div>
+            <h2>カイへの手紙</h2>
+            <p>Letter to Kai</p>
+            <div class="click-hint">📱 タップして開く / Click to Open</div>
+        </div>
+    </div>
+
+    <!-- Reading Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <!-- Fireworks Overlay -->
+    <div class="fireworks-overlay" id="fireworks-overlay">
+        <div class="fireworks-message" id="fireworks-message">
+            I love you forever,<br>
+            no matter what happens 💕
+        </div>
+    </div>
+
+    <!-- Control Panel -->
+    <div class="control-panel">
+        <button class="control-btn" onclick="toggleDarkMode()" title="Toggle Dark Mode" id="dark-mode-btn">
+            🌙
+        </button>
+        <button class="control-btn" onclick="window.print()" title="Print / Save as PDF">
+            🖨️
+        </button>
+        <button class="control-btn" onclick="toggleMusicControls()" title="Background Music" id="music-btn">
+            🎵
+        </button>
+        <div class="music-controls" id="music-controls">
+            <button id="play-pause-btn" onclick="toggleMusic()"
+                style="background: none; border: none; font-size: 2rem; cursor: pointer;">▶️</button>
+            <input type="range" min="0" max="100" value="50" class="volume-slider" onchange="changeVolume(this.value)">
+
+            <!-- Track Selection -->
+            <div class="track-list">
+                <div class="track-list-title">🎵 プレイリスト</div>
+                <div class="track-buttons">
+                    <button class="track-btn active" id="track-btn-0" onclick="selectTrack(0)">🎶 曲 1</button>
+                    <button class="track-btn" id="track-btn-1" onclick="selectTrack(1)">🎶 曲 2</button>
+                    <button class="track-btn" id="track-btn-2" onclick="selectTrack(2)">🎶 曲 3</button>
+                    <button class="track-btn" id="track-btn-3" onclick="selectTrack(3)">🎶 曲 4</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Music Playlist (4 tracks that rotate automatically) -->
+    <audio id="background-music"></audio>
+
+    <!-- Animated particles -->
+    <script>
+        // Create floating particles
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            document.body.appendChild(particle);
+        }
+
+        // Create floating hearts
+        for (let i = 0; i < 15; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.textContent = '❤️';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+            heart.style.animationDelay = Math.random() * 12 + 's';
+            heart.style.animationDuration = (Math.random() * 8 + 10) + 's';
+            document.body.appendChild(heart);
+        }
+
+        // Create glowing orbs
+        const orbColors = [
+            'rgba(255, 182, 193, 0.4)',  // Pink
+            'rgba(221, 160, 221, 0.4)',  // Plum
+            'rgba(176, 224, 230, 0.4)',  // Powder blue
+            'rgba(255, 218, 185, 0.4)',  // Peach
+            'rgba(230, 230, 250, 0.4)'   // Lavender
+        ];
+
+        for (let i = 0; i < 8; i++) {
+            const orb = document.createElement('div');
+            orb.className = 'orb';
+            orb.style.width = (Math.random() * 200 + 100) + 'px';
+            orb.style.height = orb.style.width;
+            orb.style.left = Math.random() * 100 + '%';
+            orb.style.top = Math.random() * 100 + '%';
+            orb.style.background = orbColors[Math.floor(Math.random() * orbColors.length)];
+            orb.style.animationDelay = Math.random() * 20 + 's';
+            orb.style.animationDuration = (Math.random() * 10 + 15) + 's';
+            document.body.appendChild(orb);
+        }
+    </script>
+
+    <div class="container">
+        <div class="header">
+            <h1>カイへの手紙</h1>
+            <div class="subtitle">Letter to Kai</div>
+        </div>
+
+        <div class="language-toggle">
+            <button class="toggle-btn active" id="btn-japanese" onclick="showLanguage('japanese')">
+                日本語 (Japanese)
+            </button>
+            <button class="toggle-btn" id="btn-english" onclick="showLanguage('english')">
+                English
+            </button>
+            <button class="toggle-btn" id="btn-taglish" onclick="showLanguage('taglish')">
+                Taglish
+            </button>
+        </div>
+
+        <div class="heart-decoration">❤️</div>
+
+        <!-- Japanese Version -->
+        <div class="letter-content japanese" id="japanese-content">
+            <p class="greeting">カイへ。</p>
+            <p>まず、これを読んでるってことは21歳になってるってことだよね。えへへ。<br>
+            </p>
+
+            <div class="confetti-container" id="confetti-jp"></div>
+            <div class="birthday-message">
+                <span class="sparkle">✨</span> 21歳おめでとう、私のカイ<span class="sparkle">✨</span>
+            </div>
+            <div class="confetti-container" id="confetti-jp-2"></div>
+
+            <!-- Day Counter -->
+            <div class="day-counter">
+                <h3>💕 私たちの時間 💕</h3>
+                <div class="counter-item">
+                    <div class="counter-label">出会ってから（2025年9月3日）</div>
+                    <div class="counter-value"><span class="counter-number" id="days-met-jp">0</span> 日</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-label">付き合ってから（2025年11月4日）</div>
+                    <div class="counter-value"><span class="counter-number" id="days-dating-jp">0</span> 日</div>
+                </div>
+            </div>
+
+            <p>生まれてきてくれて、本当にありがとう。どんなに辛いことがあったとしても、生きる道を選んでくれて、ありがとう。悪の道に歩まないでいてくれてありがとう。私と出会ってくれて、本当にありがとう。あなたが私の人生に現れてくれて、本当に私は恵まれている。
+            </p>
+
+            <p>生きることって辛いよね。どんなに辛いことがあっても前に進むって辛かったよね。今まで本当に、よく頑張ってきたね。今までよく、一人で生きてきたね。よく、強くあり続けてきたね。あなたはもっと報われるべきだと私は思う。そのためにも私はこれからも頑張りたいって思うし、実際に最善を尽くすつもりだ。
+            </p>
+
+            <p>毎回あなたに言っていることだから、重みが減ってしまうかもしれないけど、私はあなたを本当に幸せにしたい。カイがカイ自身を幸せにできるくらい、私はあなたに最大限の幸せと安心感を与えたい。</p>
+
+            <div class="decorative-line"></div>
+
+            <p>それと、あなたは私の人生を変えた。これは事実なんだ。</p>
+
+            <p>私がここまで私でいることを許してくれるのは、ここまで愛を感じたのは、あなたが初めてだよ。生まれて初めての感覚、幸せの感覚。それで、あなたはしっかり話し合うことができるよね。私がどれだけ感情が乱れても、あなたもどれだけ感情が乱れても、私たちはしっかり最後は話し合えるよね。そして、どんなことがあっても私と一緒に前に歩もうとしてくれるよね。私はそれが嬉しい。一番嬉しい。あなたのその強さを、私はめちゃくちゃ誇りに思うし、どんなカップルよりも私たちは幸せだと思うし、幸せになれると確信できる。ああ、まああまりプレッシャーに感じなくていいからね。私はただあなたの隣にいることができたら、それだけでいいから。それ以上は何も求めない。こう書くと、私は完全にあなたに依存しているように思える（笑）。<br>
+                でもまあ事実だからしょうがない。誰が何と言おうと関係ない。私は私の道を進む。他人は他人で、自分は自分だから。</p>
+
+            <p>それと、本当にあなたは私の運命の人だと思う。まあ、運命とかそこまで信じないけど、そんな私に運命を信じさせるほどの力をあなたは持ってる。それで、例え運命の人じゃなくても、私があなたを選べば運命の人になる、でしょ？じゃあ、私はあなたを運命の人として選ぶよ。それくらい、私はあなたを、大好きで、信仰している。
+            </p>
+
+            <p>ちょっと本題に戻ると、あなたは私の人生を変えた。私は実際に、日本で40歳や50歳でリタイアしたあと、フィリピンに移住しようとしていたんだ。これは多分前にも話したっけ？だけど、その予定がかなり早まった。しかも、あなたという大切な存在もできて。これはめちゃくちゃもちろんめちゃくちゃ良い意味でだ。あなたのおかげで私の人生はもっと面白く、ハラハラ、ドキドキ、やりがいに満ちた人生になりそうで、本当の自分の実力を発揮しなければいけなさそうだからだ。それは私にわくわく感を与えてくれる。もし、あなたに出会うことができなければ、私はなんてつまらない人生を歩んでいたことだろうか。21歳でこんなにも将来の計画を厳密に立てるとは思わなかった。本当に私は恵まれている。
+            </p>
+
+            <div class="decorative-line"></div>
+
+            <p>まあ、普段からあなたに言っていることを手紙に書いたって感じかな。特に目新しいものは無いんじゃないかな？（笑）</p>
+
+            <p>私としての価値観は、「成長」→「圧倒的未来」→「普通を凌駕」という感じで遷移していった。でもまあ、今はよく定まってないから、「圧倒的未来」と「普通を凌駕」をうろうろしているって感じかな。「圧倒的未来」の方が、人と比較する要素が少ないから多分こっちの方が良いんだろうけど。だから私は、未来が良くなるように行動を重ねていきたいって考えているし、そうするつもりだ。
+            </p>
+
+            <p>私たちとしての価値観を上げるんだったらなんだろうね。カイ個人としては「共感」を上げていた。なんて美しく、ものすごく優しい価値観なんだろうか。カイはやっぱり永遠に俺のものだ。その心を守りたい、カイを幸せにしたい。。。<br>
+                話を戻すと、「優しさ」とか、「幸せ」とか、「透明性」とか、「未来」とか、「暖かさ」とか、まあいろんなことが挙げられそう。まあこれはちょっと私の考えということでおいておこっか。</p>
+
+            <div class="decorative-line"></div>
+
+            <p>まあ結局何が言いたいかって言うとさ、私はいかなるどんなことがあったとしても、あなたと一緒に住むという夢を叶えるよ。私の人生はあなたに捧げる。重く聞こえるかもしれないね。でもこれは私がした決断だ。もうすでに私たちは結婚をしているし、あなたのことが大好きで、一生そばにいたいって思うからね。私はあなたの永遠の夫で、あなたは私の永遠の妻だ。実際に、私のもう一つの価値観は、「カイ」、あなただから。もうそう言えるほど、あなたのことを考えない日は無い。全て、カイとの未来をベースにして物事を考えるようになった。例えば、昨日の運転免許更新の授業だって、もしかしたら私は将来乗れるようにした方が良いって思って、真剣に授業を受けていたし、アルバイトだって、てきぱき行動できた方がより早くカイの元に行けるって考えてやっているよ。それ以外にももちろん、本当にたくさんある。生活の大半が、あなたとの未来をベースに動いているようにも感じる。だから、私のもう一つの価値観は、「Kallele
+                chean」、あなただ。asawa ko.</p>
+
+            <p>これからもいろんなことがあるかもしれないね。大きく二人の間で変化が起きたり、二人でいることができる時間が少なくなったり、将来設計の理想と全然違くて大きく落胆したり、今は想像できない嫌なことだって起きるかもしれない。それでも私は、最後まで私の価値観を突き通して、あなたの隣に、確実に行く。だから、そこまで不安に思わなくていいよ。そして、もちろんプレッシャーも感じなくていいよ、カイ。私はあなたの意志を、あなたの考えを、存在を尊重し、肯定したいから。だから、何も心配しなくていい。何もプレッシャーを感じなくていいよ。あなたはあなたが大好きな人生を選んでほしい。いつでも、どんな時でも。だってあなたの考えや将来も尊重したいから。それをすることだって、夫の役目だし、大好きな人に対する態度でしょ？だから、何も不安に思う必要は無いし、何もプレッシャーを感じる必要はないよ。それだけあなたのことが大好きだからね(∀｀*ゞ)ｴﾍﾍ。
+            </p>
+
+            <div class="decorative-line"></div>
+
+            <p>大好きだよ、カイ。あなたしか必要ない。あなたしか欲しくない。あなたが世界で一番かわいくて、世界で一番大好きだ。</p>
+
+            <p>本当に、生まれてきてくれて、生きる道を選んでくれて、私と出会ってくれて、強くあり続けてくれて、ありがとう。</p>
+
+            <p>私は、あなたの存在が、大好きです。</p>
+
+            <p>不器用でまだまだ未熟な私ですが、これからもどうか、22歳、30歳、いや、100歳、いや、死ぬまで、お願いします。</p>
+
+            <p>Kallele chean, Evangelista. あなたがこの世で一番大好きです。</p>
+
+            <div class="heart-decoration">💕</div>
+
+            <div class="signature">Mizuki Yasuokaより<br>
+                <span style="font-size: 1rem; font-weight: 400; margin-top: 10px; display: inline-block;">February 4th,
+                    2026 - Fujisawa, Japan</span>
+            </div>
+
+            <!-- Secret Button for Japanese -->
+            <div style="text-align: center;">
+                <button class="secret-button" onclick="showFireworks()">✨ 特別なメッセージ ✨</button>
+            </div>
+        </div>
+
+        <!-- English Version -->
+        <div class="letter-content english" id="english-content">
+            <p class="greeting">Dear Kai,</p>
+
+            <p>Reading this means you've turned 21, doesn't it? Hehe.</p>
+
+            <div class="confetti-container" id="confetti-en"></div>
+            <div class="birthday-message">
+                <span class="sparkle">✨</span> Happy 21st Birthday, my Kai! <span class="sparkle">✨</span>
+            </div>
+            <div class="confetti-container" id="confetti-en-2"></div>
+
+            <!-- Day Counter -->
+            <div class="day-counter">
+                <h3>💕Our Time Together💕</h3>
+                <div class="counter-item">
+                    <div class="counter-label">Since we met (September 3, 2025)</div>
+                    <div class="counter-value"><span class="counter-number" id="days-met-en">0</span> days</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-label">Since we started dating (November 4, 2025)</div>
+                    <div class="counter-value"><span class="counter-number" id="days-dating-en">0</span> days</div>
+                </div>
+            </div>
+
+            <p>Thank you so much for being born into this world. Thank you for choosing the path of life, no matter how
+                hard things got. Thank you for not going down the wrong path. And thank you, truly, for meeting me. I am
+                so incredibly blessed that you appeared in my life.</p>
+
+            <p>Living is hard, isn't it? It must have been painful to keep moving forward despite all the hardships. You
+                have really, really done well up until now. You've survived on your own for so long. You've stayed
+                strong. I truly believe you deserve to be rewarded for that. That is why I want to work hard from now
+                on, and I intend to do my absolute best for you.</p>
+
+            <p>I say this to you all the time, so it might lose its weight, but I really want to make you happy. I want
+                to give you the maximum amount of happiness and security—so much that you can learn to make yourself
+                happy, too.</p>
+
+            <div class="decorative-line"></div>
+
+            <p>Also, you changed my life. This is a fact.</p>
+
+            <p>You are the first person to allow me to be truly myself, and the first person to make me feel this much
+                love. It's a feeling I've never had since I was born—the feeling of happiness. And we can really talk
+                things through, can't we? No matter how emotional I get, or how emotional you get, we are always able to
+                talk it out in the end. You always try to walk forward with me, no matter what happens. That makes me
+                happy. Happier than anything. I am so proud of your strength, and I am convinced that we are happier
+                than any other couple and that we will continue to be happy. Ah, but please don't feel too pressured,
+                okay? I just want to be by your side; that is enough for me. I don't ask for anything more. Writing it
+                like this, I sound completely dependent on you (lol).<br>
+                But well, it's a fact, so it can't be helped. It doesn't matter what anyone says. I will follow my own
+                path. Others are others, and I am me.</p>
+
+            <p>Also, I really think you are my soulmate. Well, I don't usually believe in fate that much, but you have
+                the power to make someone like me believe in it. And even if you aren't "destined" to be, if I choose
+                you, you <em>become</em> my destiny, right? So, I choose you as my soulmate. That is how much I love you
+                and am devoted to you.</p>
+
+            <p>To get back to the main point, you changed my life. Actually, I was planning to move to the Philippines
+                after retiring in Japan at 40 or 50. Did I tell you this before? But that plan has accelerated
+                significantly. And now I have you, this precious existence. This is, of course, in the best way
+                possible. Thanks to you, my life looks like it's going to be much more interesting, thrilling,
+                heart-pounding, and full of purpose. It feels like I'll really have to use my full potential. That gives
+                me such a sense of excitement. If I hadn't met you, what a boring life I would have lived. I never
+                thought I would be planning my future this strictly at 21. I am truly blessed.</p>
+
+            <div class="decorative-line"></div>
+
+            <p>Well, I guess I'm just writing down what I usually say to you. Nothing too new, right? (lol)</p>
+
+            <p>My personal values have transitioned from "Growth" to "Overwhelming Future" to "Surpassing Normal." But
+                right now, it's not fully fixed, so I'm wandering between "Overwhelming Future" and "Surpassing Normal."
+                "Overwhelming Future" has fewer elements of comparison with others, so maybe that one is better. So, I'm
+                thinking about taking actions to make the future better, and I intend to do so.</p>
+
+            <p>If we were to raise a value for "Us," what would it be? For you personally, you raised "Empathy." What a
+                beautiful and incredibly kind value. Kai is truly mine forever. I want to protect that heart; I want to
+                make Kai happy...<br>
+                Anyway, back to the topic—we could list things like "Kindness," "Happiness," "Transparency," "Future,"
+                or "Warmth." Well, let's leave this as my little thought experiment for now.</p>
+
+            <div class="decorative-line"></div>
+
+            <p>In the end, what I want to say is: No matter what happens, I will make the dream of living with you come
+                true. I dedicate my life to you. That might sound heavy. But this is the decision I have made. We are
+                effectively already married, and I love you so much that I want to be with you for a lifetime. I am your
+                eternal husband, and you are my eternal wife. In fact, another one of my values is "Kai"—you. I can say
+                that because there isn't a day I don't think about you. I've started to base everything I think about on
+                my future with you. For example, even with yesterday's driver's license renewal lecture, I took the
+                class seriously thinking I should be able to drive for our future. And with my part-time job, I work
+                efficiently thinking that doing so will get me to you faster. There are so many other things, too. It
+                feels like the majority of my life is moving based on a future with you. So, my other value is "Kallele
+                chean"—you. <em>Asawa ko.</em></p>
+
+            <p>There might be many things happening from now on. Big changes might happen between us, the time we can
+                spend together might decrease, or we might be disappointed because things are different from our ideal
+                plans. Unimaginable bad things might happen. Even so, I will stick to my values until the end and I will
+                definitely, consistently, come to your side. So, you don't need to be that anxious. And of course, you
+                don't need to feel pressure, Kai. Because I want to respect and affirm your will, your thoughts, and
+                your existence.</p>
+
+            <p>So, you don't have to worry about anything. You don't need to feel any pressure at all. I want you to
+                choose the life <em>you</em> love. Always, no matter what. Because I want to respect your thoughts and
+                your future. After all, that is a husband's role, and that is how you treat the person you love, right?
+                So, there is no need to feel anxious, and no need to feel any pressure. That's just how much I love you.
+                (∀｀*ゞ)ｴﾍﾍ.</p>
+
+            <div class="decorative-line"></div>
+
+            <p>I love you, Kai. I need only you. I want only you. You are the cutest in the world, and I love you the
+                most in the world.</p>
+
+            <p>Truly, thank you for being born, for choosing to live, for meeting me, and for staying strong.</p>
+
+            <p>I love your very existence.</p>
+
+            <p>I am still clumsy and immature, but please, be with me at 22, 30, no, 100, no... until death.</p>
+
+            <p>Kallele chean, Evangelista. I love you the most in this world.</p>
+
+            <div class="heart-decoration">💕</div>
+
+            <div class="signature">From Mizuki Yasuoka<br>
+                <span style="font-size: 1rem; font-weight: 400; margin-top: 10px; display: inline-block;">February 4th,
+                    2026 - Fujisawa, Japan</span>
+            </div>
+
+            <!-- Secret Button for English -->
+            <div style="text-align: center;">
+                <button class="secret-button" onclick="showFireworks()">✨ A Special Message For You ✨</button>
+            </div>
+        </div>
+
+        <!-- Taglish Version -->
+        <div class="letter-content taglish" id="taglish-content">
+            <p class="greeting">Dear Kai,</p>
+
+            <p>Reading this means you're 21 already, 'di ba? Hehe.</p>
+
+            <div class="confetti-container" id="confetti-tl"></div>
+            <div class="birthday-message">
+                <span class="sparkle">✨</span> Happy 21st Birthday, my Kai! <span class="sparkle">✨</span>
+            </div>
+            <div class="confetti-container" id="confetti-tl-2"></div>
+
+            <!-- Day Counter -->
+            <div class="day-counter">
+                <h3>💕 Ating Mga Araw 💕</h3>
+                <div class="counter-item">
+                    <div class="counter-label">Since we met (September 3, 2025)</div>
+                    <div class="counter-value"><span class="counter-number" id="days-met-tl">0</span> araw</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-label">Since nag-start tayo (November 4, 2025)</div>
+                    <div class="counter-value"><span class="counter-number" id="days-dating-tl">0</span> araw</div>
+                </div>
+            </div>
+
+            <p>Thank you talaga for being born into this world. Thank you for choosing to live, no matter how hard
+                things got. Salamat for not going down the wrong path. And thank you, truly, for meeting me. I am so
+                incredibly blessed na dumating ka sa life ko.</p>
+
+            <p>Living is hard, 'di ba? Sobrang hirap siguro to keep moving forward despite all the struggles. But you
+                did really, really well. Kinaya mo mag-isa for so long. Ang tapang mo. I truly believe you deserve to be
+                rewarded for that. That is why I want to work hard from now on, and I intend to do my absolute best para
+                sa'yo.</p>
+
+            <p>I say this to you all the time, kaya baka mawala na yung weight niya, but I really want to make you
+                happy. Gusto kong ibigay sa'yo yung maximum happiness and security—yung tipong you can learn to make
+                yourself happy na rin.</p>
+
+            <div class="decorative-line"></div>
+
+            <p>Also, you changed my life. Fact 'yan.</p>
+
+            <p>You are the first person to allow me to be truly myself, and the first person to make me feel this much
+                love. First time ko naramdaman 'to since birth—yung ganitong happiness. And we can really talk things
+                through, 'di ba? Kahit gaano ako ka-emotional, or kahit ikaw yung emotional, naaayos natin sa huli. You
+                always try to walk forward with me, no matter what happens. Sobrang saya ko dun. Happier than anything.
+                I am so proud of your strength, and I am convinced na mas masaya tayo than any other couple and that we
+                will continue to be happy. Ah, pero please don't feel too pressured, okay? Basta nasa tabi mo lang ako,
+                okay na ako dun. I don't ask for anything more. Writing it like this, mukha akong completely dependent
+                sa'yo (lol).<br>
+                But well, fact naman kasi, so wala tayong magagawa. Kebs na sa sasabihin ng iba. I will follow my own
+                path. Others are others, and I am me.</p>
+
+            <p>Also, feeling ko talaga soulmate kita. Well, I don't usually believe in fate that much, but you have the
+                power to make someone like me believe in it. And even if you aren't "destined" to be, if I choose you,
+                you <em>become</em> my destiny, 'di ba? So, I choose you as my soulmate. Ganyan kita kamahal at ganyan
+                ako ka-devoted sa'yo.</p>
+
+            <p>To get back to the main point, you changed my life. Actually, I was planning to move to the Philippines
+                after retiring in Japan at 40 or 50. Nasabi ko na ba 'to before? But that plan has accelerated
+                significantly. And now I have you, my precious one. This is, of course, in the best way possible. Thanks
+                to you, my life looks like it's going to be much more interesting, thrilling, heart-pounding, and full
+                of purpose. Parang I really have to use my full potential. Nakaka-excite siya. If I hadn't met you,
+                siguro sobrang boring ng life ko. I never thought I would be planning my future this strictly at 21.
+                Sobrang swerte ko talaga.</p>
+
+            <div class="decorative-line"></div>
+
+            <p>Well, parang sinusulat ko lang yung usually na sinasabi ko sa'yo. Nothing too new, right? (lol)</p>
+
+            <p>My personal values have transitioned from "Growth" to "Overwhelming Future" to "Surpassing Normal." But
+                right now, it's not fully fixed, so I'm wandering between "Overwhelming Future" and "Surpassing Normal."
+                Mas okay yata yung "Overwhelming Future" since fewer elements of comparison with others. So, I'm
+                thinking about taking actions to make the future better, and gagawin ko talaga 'yun.</p>
+
+            <p>If we were to raise a value for "Us," ano kaya 'yun? For you personally, you raised "Empathy." Sobrang
+                ganda at sobrang bait na value nun. Kai is truly mine forever. Gusto kong protektahan yang heart mo; I
+                want to make Kai happy...<br>
+                Anyway, back to the topic—pwede nating ilista yung "Kindness," "Happiness," "Transparency," "Future," or
+                "Warmth." Well, let's leave this as my little thought experiment for now.</p>
+
+            <div class="decorative-line"></div>
+
+            <p>In the end, ang gusto ko lang sabihin is: No matter what happens, tutuparin ko yung dream na magkasama
+                tayo. I dedicate my life to you. Medyo heavy pakinggan. But this is the decision I have made. Parang
+                mag-asawa na rin naman tayo, and I love you so much that I want to be with you for a lifetime. I am your
+                eternal husband, and you are my eternal wife. In fact, another one of my values is "Kai"—ikaw. Nasabi ko
+                'yan kasi wala yatang araw na hindi kita iniisip. I've started to base everything I think about on my
+                future with you. For example, even with yesterday's driver's license renewal lecture, seryoso ako
+                nakinig thinking I should be able to drive for our future. And with my part-time job, I work efficiently
+                thinking that doing so will get me to you faster. Ang dami pang iba. Feeling ko majority ng life ko is
+                moving based on a future with you. So, my other value is "Kallele chean"—ikaw. <em>Asawa ko.</em></p>
+
+            <p>There might be many things happening from now on. Pwedeng may big changes sa atin, pwedeng mabawasan time
+                natin together, or we might be disappointed because things are different from our ideal plans.
+                Unimaginable bad things might happen. Even so, paninindigan ko yung values ko until the end and I will
+                definitely, consistently, come to your side. So, you don't need to be that anxious. And of course, you
+                don't need to feel pressure, Kai. Because I want to respect and affirm your will, your thoughts, and
+                your existence.</p>
+
+            <p>So, you don't have to worry about anything. You don't need to feel any pressure at all. I want you to
+                choose the life you love. Always, no matter what. Because I want to respect your thoughts and your
+                future. After all, role naman ng asawa 'yun, and that is how you treat the person you love, 'di ba? So,
+                no need to feel anxious, and no need to feel any pressure. Ganyan kita kamahal. Hehe.</p>
+
+            <div class="decorative-line"></div>
+
+            <p>Mahal kita, Kai. Ikaw lang kailangan ko. Ikaw lang gusto ko. Ikaw ang pinaka-cute at pinakamamahal ko sa
+                buong mundo.</p>
+
+            <p>Salamat talaga at pinanganak ka, pinili mong mabuhay, nakilala mo ako, at naging matatag ka.</p>
+
+            <p>Mahal na mahal ko ang existence mo.</p>
+
+            <p>Clumsy pa ako at immature, pero please, samahan mo ako sa 22, 30, no, 100, no... hanggang kamatayan.</p>
+
+            <p>Kallele chean, Evangelista. Mahal na mahal kita higit sa lahat.</p>
+
+            <div class="heart-decoration">💕</div>
+
+            <div class="signature">From Mizuki Yasuoka<br>
+                <span style="font-size: 1rem; font-weight: 400; margin-top: 10px; display: inline-block;">February 4th,
+                    2026 - Fujisawa, Japan</span>
+            </div>
+
+            <!-- Secret Button for Taglish -->\n <div style="text-align: center;">
+                <button class="secret-button" onclick="showFireworks()">✨ Isang Special Message Para Sa Iyo ✨</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create confetti
+        function createConfetti(containerId) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+
+            const colors = ['#FFD700', '#FF69B4', '#9370DB', '#87CEEB', '#98FB98', '#FF6347', '#FFB6C1', '#DDA0DD'];
+
+            for (let i = 0; i < 30; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 3 + 's';
+                confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                container.appendChild(confetti);
+            }
+        }
+
+        // Initialize confetti for all languages
+        createConfetti('confetti-jp');
+        createConfetti('confetti-jp-2');
+        createConfetti('confetti-en');
+        createConfetti('confetti-en-2');
+        createConfetti('confetti-tl');
+        createConfetti('confetti-tl-2');
+
+        // Language switching function
+        function showLanguage(language) {
+            const japaneseContent = document.getElementById('japanese-content');
+            const englishContent = document.getElementById('english-content');
+            const taglishContent = document.getElementById('taglish-content');
+
+            const btnJapanese = document.getElementById('btn-japanese');
+            const btnEnglish = document.getElementById('btn-english');
+            const btnTaglish = document.getElementById('btn-taglish');
+
+            // Hide all
+            japaneseContent.style.display = 'none';
+            englishContent.style.display = 'none';
+            taglishContent.style.display = 'none';
+
+            // Remove active class from all buttons
+            btnJapanese.classList.remove('active');
+            btnEnglish.classList.remove('active');
+            btnTaglish.classList.remove('active');
+
+            // Show selected language and activate button
+            if (language === 'japanese') {
+                japaneseContent.style.display = 'block';
+                btnJapanese.classList.add('active');
+            } else if (language === 'english') {
+                englishContent.style.display = 'block';
+                btnEnglish.classList.add('active');
+            } else if (language === 'taglish') {
+                taglishContent.style.display = 'block';
+                btnTaglish.classList.add('active');
+            }
+
+            // Re-trigger animations
+            const paragraphs = document.querySelectorAll('.letter-content p');
+            paragraphs.forEach((p, index) => {
+                p.style.animation = 'none';
+                setTimeout(() => {
+                    p.style.animation = '';
+                }, 10);
+            });
+        }
+
+        // === DARK MODE FUNCTIONALITY ===
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            document.getElementById('dark-mode-btn').textContent = isDark ? '☀️' : '🌙';
+
+            // Save preference to localStorage
+            localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+        }
+
+        // Load dark mode preference on page load
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+            document.getElementById('dark-mode-btn').textContent = '☀️';
+        }
+
+        // === MUSIC PLAYER FUNCTIONALITY WITH PLAYLIST ===
+        const music = document.getElementById('background-music');
+        let isPlaying = false;
+        let currentTrackIndex = 0;
+
+        // プレイリスト: 4つの音楽ファイルのパス
+        const playlist = [
+            '1.mp3',  // 1曲目
+            '2.mp3',  // 2曲目
+            '3.mp3',  // 3曲目
+            '4.mp3'   // 4曲目
+        ];
+
+        // 曲が終わったら次の曲に自動的に移動
+        music.addEventListener('ended', function () {
+            playNextTrack();
+        });
+
+        function playNextTrack() {
+            currentTrackIndex = (currentTrackIndex + 1) % playlist.length; // 次の曲へ（最後なら最初に戻る）
+            loadAndPlayTrack(currentTrackIndex);
+            updateTrackButtons(); // Update button highlights
+        }
+
+        function loadAndPlayTrack(index) {
+            const trackPath = playlist[index];
+            music.src = trackPath;
+            music.load();
+
+            music.play().then(() => {
+                isPlaying = true;
+                document.getElementById('play-pause-btn').textContent = '⏸️';
+                console.log(`再生中: ${trackPath} (${index + 1}/${playlist.length})`);
+            }).catch(err => {
+                console.error('音楽の再生エラー:', err);
+                // 自動再生が失敗した場合は静かに失敗（エラーメッセージを出さない）
+                isPlaying = false;
+                document.getElementById('play-pause-btn').textContent = '▶️';
+            });
+        }
+
+        // ウェルカムオーバーレイをクリックしたら手紙を開始
+        function startLetter() {
+            const overlay = document.getElementById('welcome-overlay');
+            overlay.classList.add('hidden');
+
+            // オーバーレイが完全に消えてから音楽を開始
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                loadAndPlayTrack(0); // 音楽を開始
+            }, 800);
+        }
+
+        // === DAY COUNTER CALCULATIONS ===
+        function updateDayCounters() {
+            const metDate = new Date('2025-09-03');
+            const datingDate = new Date('2025-11-04');
+            const today = new Date();
+
+            const daysSinceMet = Math.floor((today - metDate) / (1000 * 60 * 60 * 24));
+            const daysSinceDating = Math.floor((today - datingDate) / (1000 * 60 * 60 * 24));
+
+            // Update all language versions
+            ['jp', 'en', 'tl'].forEach(lang => {
+                const metElem = document.getElementById(`days-met-${lang}`);
+                const datingElem = document.getElementById(`days-dating-${lang}`);
+                if (metElem) metElem.textContent = daysSinceMet;
+                if (datingElem) datingElem.textContent = daysSinceDating;
+            });
+        }
+
+        // === READING PROGRESS BAR ===
+        function updateProgressBar() {
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight - windowHeight;
+            const scrolled = window.scrollY;
+            const progress = (scrolled / documentHeight) * 100;
+
+            const progressBar = document.getElementById('progress-bar');
+            if (progressBar) {
+                progressBar.style.width = progress + '%';
+            }
+        }
+
+        window.addEventListener('scroll', updateProgressBar);
+
+        // === INTERACTIVE HEARTS ON CLICK ===
+        document.addEventListener('click', function (e) {
+            // Don't create hearts on button clicks or control panel
+            if (e.target.tagName === 'BUTTON' || e.target.closest('.control-panel')) {
+                return;
+            }
+
+            const heart = document.createElement('div');
+            heart.className = 'click-heart';
+            heart.textContent = '💕';
+            heart.style.left = e.clientX + 'px';
+            heart.style.top = e.clientY + 'px';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 2000);
+        });
+
+        // === FIREWORKS DISPLAY ===
+        function showFireworks() {
+            const overlay = document.getElementById('fireworks-overlay');
+            overlay.classList.add('active');
+
+            // Create many fireworks over time
+            let fireworkCount = 0;
+            const fireworkInterval = setInterval(() => {
+                createFirework();
+                fireworkCount++;
+
+                if (fireworkCount >= 30) {
+                    clearInterval(fireworkInterval);
+                }
+            }, 300);
+
+            // Close after 10 seconds
+            setTimeout(() => {
+                overlay.classList.remove('active');
+            }, 10000);
+
+            // Click to close early
+            overlay.onclick = function () {
+                overlay.classList.remove('active');
+                overlay.onclick = null;
+            };
+        }
+
+        function createFirework() {
+            const colors = ['#FFD700', '#FF69B4', '#9370DB', '#87CEEB', '#98FB98', '#FF6347', '#FFB6C1', '#DDA0DD', '#FFA500', '#00CED1'];
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * (window.innerHeight * 0.7); // Keep in upper 70% of screen
+
+            // Create explosion particles
+            for (let i = 0; i < 40; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'firework';
+                particle.style.position = 'fixed';
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                particle.style.width = '6px';
+                particle.style.height = '6px';
+                particle.style.borderRadius = '50%';
+                particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.pointerEvents = 'none';
+                particle.style.zIndex = '10003';
+
+                document.body.appendChild(particle);
+
+                const angle = (Math.PI * 2 * i) / 40;
+                const velocity = 2 + Math.random() * 3;
+                const tx = Math.cos(angle) * velocity;
+                const ty = Math.sin(angle) * velocity;
+
+                let posX = 0;
+                let posY = 0;
+                let opacity = 1;
+                let frame = 0;
+
+                const animate = () => {
+                    frame++;
+                    posX += tx;
+                    posY += ty + (frame * 0.05); // gravity
+                    opacity -= 0.015;
+
+                    particle.style.transform = `translate(${posX}px, ${posY}px)`;
+                    particle.style.opacity = opacity;
+
+                    if (opacity > 0 && frame < 120) {
+                        requestAnimationFrame(animate);
+                    } else {
+                        particle.remove();
+                    }
+                };
+
+                requestAnimationFrame(animate);
+            }
+        }
+
+        // === STARRY SKY ===
+        function createStars() {
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                document.body.appendChild(star);
+            }
+        }
+
+        function createShootingStar() {
+            const star = document.createElement('div');
+            star.className = 'shooting-star';
+            star.style.left = Math.random() * window.innerWidth + 'px';
+            star.style.top = Math.random() * (window.innerHeight / 2) + 'px';
+            star.style.animation = 'shoot 1.5s ease-out forwards';
+            document.body.appendChild(star);
+
+            setTimeout(() => star.remove(), 1500);
+        }
+
+        // Create shooting stars randomly
+        setInterval(() => {
+            if (Math.random() < 0.3) { // 30% chance every 3 seconds
+                createShootingStar();
+            }
+        }, 3000);
+
+        // === INITIALIZE ALL FEATURES ===
+        window.addEventListener('load', function () {
+            updateDayCounters();
+            createStars();
+            updateProgressBar();
+        });
+
+        // === TRACK SELECTION ===
+        function selectTrack(index) {
+            currentTrackIndex = index;
+            loadAndPlayTrack(index);
+            updateTrackButtons();
+        }
+
+        function updateTrackButtons() {
+            // Remove active class from all buttons
+            for (let i = 0; i < 4; i++) {
+                const btn = document.getElementById(`track-btn-${i}`);
+                if (btn) {
+                    btn.classList.remove('active');
+                }
+            }
+
+            // Add active class to current track
+            const activeBtn = document.getElementById(`track-btn-${currentTrackIndex}`);
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+            }
+        }
+
+        function toggleMusicControls() {
+            const controls = document.getElementById('music-controls');
+            controls.classList.toggle('active');
+        }
+
+        function toggleMusic() {
+            const playPauseBtn = document.getElementById('play-pause-btn');
+
+            if (isPlaying) {
+                music.pause();
+                playPauseBtn.textContent = '▶️';
+                isPlaying = false;
+            } else {
+                // 初回再生時は最初の曲をロード
+                if (!music.src || music.src === window.location.href) {
+                    loadAndPlayTrack(0);
+                } else {
+                    music.play().then(() => {
+                        playPauseBtn.textContent = '⏸️';
+                        isPlaying = true;
+                    }).catch(err => {
+                        alert('音楽ファイルを再生できません。\n\nHTMLファイルと同じフォルダに以下のファイルを配置してください：\n・music1.mp3\n・music2.mp3\n・music3.mp3\n・music4.mp3');
+                    });
+                }
+            }
+        }
+
+        function changeVolume(value) {
+            music.volume = value / 100;
+        }
+
+        // 初期ボリュームを設定
+        music.volume = 0.5;
+    </script>
+</body>
+
+</html>
