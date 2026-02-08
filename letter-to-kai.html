@@ -1203,7 +1203,7 @@
             <div class="welcome-icon">💌</div>
             <h2>カイへの手紙</h2>
             <p>Letter to Kai</p>
-            <div class="click-hint">📱 タップして開く / Click to Open (turn on volume)</div>
+            <div class="click-hint">📱 タップして開く / Click to Open (sound on, please)</div>
         </div>
     </div>
 
@@ -1796,7 +1796,9 @@
         }
 
         // Load dark mode preference on page load
-        if (localStorage.getItem('darkMode') === 'enabled') {
+        // Default to dark mode if no preference is saved
+        const darkModePreference = localStorage.getItem('darkMode');
+        if (darkModePreference !== 'disabled') {
             document.body.classList.add('dark-mode');
             document.getElementById('dark-mode-btn').textContent = '☀️';
         }
